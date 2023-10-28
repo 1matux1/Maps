@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maps.MainPage"
+             xmlns:mypages="clr-namespace:Maps.Pages;assembly=Maps"
+            NavigationPage.HasNavigationBar="False">
+    <mypages:Compass Title="Kompas" IconImageSource="compass100.png"/>
+    <mypages:YourLocation Title="Twoja Lokalizacja" IconImageSource="location100.png"/>
+    <mypages:Measure Title="Odległość" IconImageSource="distance100.png"/>
+</TabbedPage>
