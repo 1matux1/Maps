@@ -6,5 +6,5 @@
             NavigationPage.HasNavigationBar="False">
     <mypages:Compass Title="Kompas" IconImageSource="compass100.png"/>
     <mypages:YourLocation Title="Twoja Lokalizacja" IconImageSource="location100.png"/>
-    <mypages:Measure Title="Odległość" IconImageSource="distance100.png"/>
+    <mypages:Places Title="Miejsca w Okolicy" IconImageSource="distance100.png"/>
 </TabbedPage>
