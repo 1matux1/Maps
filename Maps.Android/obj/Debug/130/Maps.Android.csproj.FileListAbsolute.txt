@@ -1,7 +1,0 @@
-D:\Maps\Maps.Android\bin\Debug\com.mpmk.maps-Signed.apk
-D:\Maps\Maps.Android\obj\Debug\130\android\assets\Mono.Android.dll
-D:\Maps\Maps.Android\obj\Debug\130\android\assets\Xamarin.Google.Android.Material.dll
-D:\Maps\Maps.Android\obj\Debug\130\android\assets\Xamarin.GooglePlayServices.Base.dll
-D:\Maps\Maps.Android\obj\Debug\130\android\assets\Xamarin.GooglePlayServices.Maps.pdb
-D:\Maps\Maps.Android\obj\Debug\130\android\assets\Xamarin.GooglePlayServices.Tasks.pdb
-D:\Maps\Maps.Android\obj\Debug\130\android\assets\Xamarin.Kotlin.StdLib.dll
