@@ -134,3 +134,10 @@ _NCrunch*
 
 secret.xml
 Secret.cs
+
+*.apk
+*.bin
+*.vsidx
+*.apk
+
+com.mpmk.maps-Signed.apk
