@@ -13,7 +13,7 @@ namespace Maps.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class YourLocation : ContentPage
 	{
-		public YourLocation ()
+        public YourLocation ()
 		{
 			InitializeComponent ();
 
@@ -47,7 +47,6 @@ namespace Maps.Pages
 		}
         public void UpdateMapPins(PlacesData.Location location, string name, string vicinity)
         {
-            Location();
             Mapa.Pins.Add(new Pin
             {
                 Position = new Position(location.Lat, location.Lng),

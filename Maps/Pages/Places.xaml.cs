@@ -8,6 +8,9 @@ namespace Maps.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Places : ContentPage
     {
+        public class GetPlaceData {
+            public Place placeData { get; set; }
+        }
         public Places()
         {
             InitializeComponent();
@@ -55,7 +58,7 @@ namespace Maps.Pages
                     Aspect = Aspect.AspectFill
                 };
                 iconImage.SetBinding(Image.SourceProperty, "Photos[0].PhotoUrl");
-               
+
                 var showOnMapButton = new Button
                 {
                     Text = "Pokaż na Mapie",
@@ -70,27 +73,24 @@ namespace Maps.Pages
                     var place = (Place)button.BindingContext;
                     MarkLocation(place.Geometry.Location, place.Name, place.Vicinity);
                 };
-
-
+                
                 var moreInfo = new Button
                 {
                     Text = "Więcej Informacji",
                     FontSize = 14,
                     Margin = new Thickness(5, 0, 0, 0),
                     HorizontalOptions = LayoutOptions.FillAndExpand
-                    // Dodać na kliknięcie
                 };
 
                 moreInfo.Clicked += (sender, e) =>
                 {
-                    var mainPage = this.Parent as TabbedPage;
-                    mainPage.CurrentPage = mainPage.Children[0];
-
                     var button = (Button)sender;
                     var place = (Place)button.BindingContext;
 
-                    MoreInfo more = new MoreInfo();
-                    more.GetMoreInfo(place);
+                    MessagingCenter.Send(this, "GetMoreInfo", new GetPlaceData { placeData = place });
+
+                    var mainPage = this.Parent as TabbedPage;
+                    mainPage.CurrentPage = mainPage.Children[0];
                 };
 
                 return new ViewCell

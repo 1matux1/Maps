@@ -16,7 +16,7 @@ namespace Maps
         {
             InitializeComponent();
 
-            CurrentPage = Children[1];
+            SelectedItem = Children[1];
         }
     }
 }
