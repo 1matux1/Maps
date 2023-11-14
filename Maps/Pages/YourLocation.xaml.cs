@@ -13,7 +13,7 @@ namespace Maps.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class YourLocation : ContentPage
 	{
-		public YourLocation ()
+        public YourLocation ()
 		{
 			InitializeComponent ();
 

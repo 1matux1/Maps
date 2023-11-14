@@ -8,6 +8,9 @@ namespace Maps.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Places : ContentPage
     {
+        public class GetPlaceData {
+            public Place placeData { get; set; }
+        }
         public Places()
         {
             InitializeComponent();
@@ -70,13 +73,32 @@ namespace Maps.Pages
                     var place = (Place)button.BindingContext;
                     MarkLocation(place.Geometry.Location, place.Name, place.Vicinity);
                 };
+                
+                var moreInfo = new Button
+                {
+                    Text = "Więcej Informacji",
+                    FontSize = 14,
+                    Margin = new Thickness(5, 0, 0, 0),
+                    HorizontalOptions = LayoutOptions.FillAndExpand
+                };
+
+                moreInfo.Clicked += (sender, e) =>
+                {
+                    var button = (Button)sender;
+                    var place = (Place)button.BindingContext;
+
+                    MessagingCenter.Send(this, "GetMoreInfo", new GetPlaceData { placeData = place });
+
+                    var mainPage = this.Parent as TabbedPage;
+                    mainPage.CurrentPage = mainPage.Children[0];
+                };
 
                 return new ViewCell
                 {
                     View = new StackLayout
                     {
                         Padding = new Thickness(10),
-                        Children = { iconImage, new StackLayout { Children = { nameLabel, addressLabel, typeLabel, showOnMapButton } } }
+                        Children = { iconImage, new StackLayout { Children = { nameLabel, addressLabel, typeLabel, new StackLayout { Orientation = StackOrientation.Horizontal , Children = { showOnMapButton, moreInfo } } } } }
                     }
                 };
             });

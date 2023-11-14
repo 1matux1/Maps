@@ -15,6 +15,8 @@ namespace Maps
         public MainPage()
         {
             InitializeComponent();
+
+            SelectedItem = Children[1];
         }
     }
 }
