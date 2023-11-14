@@ -1,7 +1,9 @@
 ﻿using System;
-
+using System.IO;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Maps.Pages.Places;
 using static Maps.PlacesData;
 
 namespace Maps.Pages
@@ -13,9 +15,11 @@ namespace Maps.Pages
         {
             InitializeComponent();
 
-            MessagingCenter.Subscribe<YourLocation, Place>(this, "GetMoreInfo", (sender, args) =>
+            MessagingCenter.Subscribe<Places, GetPlaceData>(this, "GetMoreInfo", (sender, args) =>
             {
-                Update(args);
+                Content = null;
+                Place place = args.placeData;
+                Update(place);
             });
         }
 
@@ -27,22 +31,6 @@ namespace Maps.Pages
 
         private void Update(Place place)
         {
-            var carouselView = new CarouselView
-            {
-                ItemsSource = place.Photos,
-                ItemTemplate = new DataTemplate(() =>
-                {
-                    var image = new Image();
-                    image.SetBinding(Image.SourceProperty, ".");
-                    image.Aspect = Aspect.AspectFill;
-
-                    return new ContentView
-                    {
-                        Content = image
-                    };
-                })
-            };
-
             var nameLabel = new Label
             {
                 Text = place.Name,
@@ -86,13 +74,6 @@ namespace Maps.Pages
                 HorizontalOptions = LayoutOptions.Center
             };
 
-            var businessStatusLabel = new Label
-            {
-                Text = $"Status: {place.BusinessStatus}",
-                FontSize = 18,
-                HorizontalOptions = LayoutOptions.Center
-            };
-
             var stackLayout = new StackLayout
             {
                 Padding = new Thickness(10),
@@ -105,8 +86,6 @@ namespace Maps.Pages
                     openNowLabel,
                     userRatingsLabel,
                     typesLabel,
-                    businessStatusLabel,
-                    carouselView
                 }
             };
 

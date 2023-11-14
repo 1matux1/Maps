@@ -4,7 +4,7 @@
              x:Class="Maps.MainPage"
              xmlns:mypages="clr-namespace:Maps.Pages;assembly=Maps"
             NavigationPage.HasNavigationBar="False">
-    <mypages:MoreInfo Title="Więcej informacji" IconImageSource="distance100.png"/>
+    <mypages:MoreInfo Title="Więcej informacji" IconImageSource="discover100.png"/>
     <mypages:YourLocation Title="Twoja Lokalizacja" IconImageSource="location100.png"/>
-    <mypages:Places Title="Miejsca w Okolicy" IconImageSource="compass100.png"/>
+    <mypages:Places Title="Miejsca w Okolicy" IconImageSource="distance100.png"/>
 </TabbedPage>
